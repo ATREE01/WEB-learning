@@ -8,10 +8,12 @@
         <title>main_page</title>
     </head>
     <body> 
-        <div class="top_bar" >
-            <div class="link"><a href="main_page.php" >首頁</a></div>
-            <div class="link"><a href="My_comment_page.php">評論區</a></div>
-            <div class="link"><a href="upload_comment.php">上傳評論區</a></div>
-        </div>    
+        <form class="login">
+            <label>帳號名稱:</label>
+            <input type="text" placeholder="請輸入帳號">
+            <label>請輸入密碼:</label>
+            <input type="password" placeholder="請輸入密碼">
+            <input type="submit" name="submit" value="登入">
+        </form>
     </body>  
 </html>

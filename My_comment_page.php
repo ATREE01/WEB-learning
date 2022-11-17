@@ -28,27 +28,30 @@
                     </div>
                 </div>
             <?php endforeach; ?> 
-            <!-- <div class="anime_block">
-                <div><img class="anime_cover" src="img/dressup_darling.jpg" ></div>
-                <div class="anime_information">
-                    <p class="anime_title">戀上換裝娃娃娃</p>
-                    <div>動漫啟蒙導師</div>
-                </div>
-            </div>
-            <div class="anime_block">
-                <div><img class="anime_cover" src="img/lycoris_recoil.jpg" ></div>
-                <div class="anime_information">
-                    <p class="anime_title">Lycoris Recoil 莉可麗絲</p>
-                    <div>百合好香</div>
-                </div>
-            </div>
-            <div class="anime_block">
-                <div><img class="anime_cover" src="img/reincarnated_as_sword.jpg" ></div>
-                <div class="anime_information">
-                    <p class="anime_title">轉生就是劍</p>
-                    <div>芙蘭讚</div>
-                </div>
-            </div> -->
+
         </div>
     </body>
 </html>
+
+
+<!-- <div class="anime_block">
+    <div><img class="anime_cover" src="img/dressup_darling.jpg" ></div>
+    <div class="anime_information">
+        <p class="anime_title">戀上換裝娃娃娃</p>
+        <div>動漫啟蒙導師</div>
+    </div>
+</div>
+<div class="anime_block">
+    <div><img class="anime_cover" src="img/lycoris_recoil.jpg" ></div>
+    <div class="anime_information">
+        <p class="anime_title">Lycoris Recoil 莉可麗絲</p>
+        <div>百合好香</div>
+    </div>
+</div>
+<div class="anime_block">
+    <div><img class="anime_cover" src="img/reincarnated_as_sword.jpg" ></div>
+    <div class="anime_information">
+        <p class="anime_title">轉生就是劍</p>
+        <div>芙蘭讚</div>
+    </div>
+</div> -->

@@ -10,7 +10,7 @@
     <body class="login_body"> 
         <form action="" class="login">
             <h1>歡迎登入</h1>
-            <input class="text_input" type="text" name="account" placeholder="請輸入電子信箱" ></input>
+            <input class="text_input " type="email" name="account" placeholder="請輸入電子信箱"></input>
             <input class="text_input" type="password" name="password" placeholder="請輸入密碼"></input>
             <input class="btn" type="submit" name="submit" value="登入">
         </form>

@@ -1,6 +1,14 @@
 html, body{
     height:99%;
 }
+
+input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+
 /* ---------------login signup area--------------- */
 
 .login_body, .signup_body{
@@ -19,6 +27,7 @@ html, body{
     text-align: center;
     font-size: 15px;
     padding:10px;
+    border:2px solid green;
     border-radius: 10px;
     display: block;
     margin:20px auto;
@@ -31,11 +40,11 @@ html, body{
 }
 .btn{
     width:120px;
-    background-color: rgb(11, 202, 59);
+    background-color: rgb(96, 160, 243);
     cursor:pointer;
 }
 .btn:hover{
-    background-color:rgb(39, 121, 46);
+    background-color:rgb(71, 99, 189);
 }
 .sign_up{
     padding:5px;

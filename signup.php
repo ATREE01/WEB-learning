@@ -23,25 +23,19 @@
             $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $username = $_POST['username'];$email = $_POST['email'];
             $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
+            
             $mysqli = require __DIR__ . "/database.php";
-
             $sql = "INSERT INTO login_db (username, email, password_hash)
                     VALUES (?, ?, ?)";
-
             $stmt = $mysqli->stmt_init();
-            
-            if ( !$stmt->prepare($sql)) 
-                die("SQL error: " . $mysqli->error);
+            $stmt ->prepare($sql);
             $stmt -> bind_param("sss",$username,$email,$password_hash);
-            if ( $stmt -> execute()) {
-                echo "WTFFFFFFFF";
-                exit;
-            } else {
-                if ($mysqli->errno === 1062) {
-                    die("email already taken");
-                } else {
-                    die($mysqli->error . " " . $mysqli->errno);
+            try {
+                $stmt->execute();
+                echo "<script>window.alert('註冊成功'); window.location='login.php'</script>";
+            } catch (mysqli_sql_exception $e) {
+                if ($e->getCode() == 1062) {
+                    echo "<script>window.alert('電子信箱已使用過')</script>";
                 }
             }
         }

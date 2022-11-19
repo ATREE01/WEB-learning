@@ -27,9 +27,10 @@ html, body{
 }
 
 /* ---------------main area--------------- */
-.index_body{
-    /* background:linear-gradient(120deg, yellow, rgb(43, 220, 226)); */
-}
+
+/* .index_body{
+    background:linear-gradient(120deg, yellow, rgb(43, 220, 226));
+} */
 
 /* ---------------login signup area--------------- */
 
@@ -83,12 +84,12 @@ html, body{
     flex-wrap:wrap;
 }
 .anime_block{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(54, 188, 221);
     margin:10px;
     border:1px black solid;
     border-radius: 10px;
-    min-width:500px;
-    max-width: 50%;
+    min-width: 400px;
+    max-width: 33%;
     height:240px;
     display:flex;
     flex:auto;
@@ -101,6 +102,7 @@ html, body{
 }
 .anime_information{
     color:rgb(0, 0, 0);
+    width:100%;
     margin-left:5%;
     display:block;
 }
@@ -129,7 +131,7 @@ html, body{
     flex-direction: column;
 }
 
-.upload_text input{
+.upload_text textarea{
     display:block;
     padding:10px;
     margin-bottom: 10px;

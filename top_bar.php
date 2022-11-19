@@ -3,7 +3,7 @@
     <a class="link_left" href="description.php">評論區</a>
         
     <?php
-        if( isset($_SESSION['user_type']) )
+        if(isset($_SESSION['user_type']) )
             if($_SESSION['user_type'] === 'admin')
                 echo '<a class="link_left" href="upload_description.php">上傳評論區</a>';
         if(isset($_SESSION['user_id'])){

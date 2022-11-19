@@ -2,7 +2,6 @@
     session_start();
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,43 +15,30 @@
         <?php require ("top_bar.php");?>
         <div class="display_area">
             <?php
-                $conn = new mysqli("localhost","root","","anime_web");
-                $result = mysqli_query($conn , "SELECT * FROM anime_comment"); 
-                $anime_comment = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                $mysqli = require __DIR__ . "/database.php";
+                $sql = "SELECT * FROM anime_description";
+                $result = $mysqli -> query($sql);
+                $anime = mysqli_fetch_all($result, MYSQLI_ASSOC);  
+                foreach($anime as $item):
             ?>
-            <?php foreach($anime_comment as $item): ?>
-                <div class="anime_block">
-                    <div><img class="anime_cover" src= img/<?php echo $item['anime_cover'] ?> ></div>
-                    <div class="anime_information">
-                        <p class="anime_title"><?php echo $item['anime_title'] ?></p>
-                        <div><?php echo $item['anime_comment'] ?></div>
-                    </div>
+            <div class="anime_block">
+                <div><img class="anime_cover" src= img/<?php echo $item['image_name'] ?> ></div>
+                <div class="anime_information">
+                <div style="float:right;">
+                    <?php        
+                        if(isset($_SESSION['user_type']) )
+                            if($_SESSION['user_type'] === 'admin')
+                                echo "<a href=''>修改</a>";
+                    ?>
                 </div>
+                    <p class="anime_title"><?php echo $item['anime_title'] ?></p>
+                    <div><?php echo $item['anime_description'] ?></div>
+                </div>
+            </div>
+
             <?php endforeach; ?> 
 
         </div>
     </body>
 </html>
 
-
-<!-- <div class="anime_block">
-    <div><img class="anime_cover" src="img/dressup_darling.jpg" ></div>
-    <div class="anime_information">
-        <p class="anime_title">戀上換裝娃娃娃</p>
-        <div>動漫啟蒙導師</div>
-    </div>
-</div>
-<div class="anime_block">
-    <div><img class="anime_cover" src="img/lycoris_recoil.jpg" ></div>
-    <div class="anime_information">
-        <p class="anime_title">Lycoris Recoil 莉可麗絲</p>
-        <div>百合好香</div>
-    </div>
-</div>
-<div class="anime_block">
-    <div><img class="anime_cover" src="img/reincarnated_as_sword.jpg" ></div>
-    <div class="anime_information">
-        <p class="anime_title">轉生就是劍</p>
-        <div>芙蘭讚</div>
-    </div>
-</div> -->

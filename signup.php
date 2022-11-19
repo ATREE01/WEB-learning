@@ -21,7 +21,8 @@
             echo "<script>window.alert('請確認兩次輸入密碼相同')</script>"; 
         else {
             $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $username = $_POST['username'];$email = $_POST['email'];
+            $username = $_POST['username']; $username = htmlspecialchars($username);
+            $email = $_POST['email'];$email=htmlspecialchars($email);
             $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
             
             $mysqli = require __DIR__ . "/database.php";
@@ -41,7 +42,6 @@
         }
     }
 ?>
-
 
 <!DOCTYPE html>
 <html>  

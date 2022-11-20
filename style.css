@@ -1,10 +1,12 @@
 /* ---------------general area--------------- */
+
+
 html, body{
     height:99%;
 }
 
 .top_bar {
-    /* background-color: rgb(212, 200, 37); */
+    background-color: rgb(212, 200, 37);
     position:fixed;
     top:0px;
     left:0px;
@@ -75,7 +77,7 @@ html, body{
     /* margin-top:-50px; */
 }
 
-/* ---------------comment_area--------------- */
+/* ---------------description_area--------------- */
 
 
 .display_area{

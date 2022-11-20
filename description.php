@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="style.css">
         <title>My_comment_page</title>
     </head>
-    <body class="My_comment_page">
+    <body class="description">
         <?php require ("top_bar.php");?>
         <div class="display_area">
             <?php

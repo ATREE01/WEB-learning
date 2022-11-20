@@ -2,7 +2,7 @@
     define('DB_HOST','localhost');
     define('DB_USER','root');
     define('DB_PASS',"");
-    define("DB_NAME",'anime_web');
+    define("DB_NAME",'anime_web_db');
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 

@@ -8,6 +8,6 @@
 
     $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
     if($mysqli-> connect_errno){
-        die("connect error:".$mysqli->connect_errno);
+        die("connect error:" . $mysqli->connect_errno);
     }
     return $mysqli;

@@ -57,7 +57,7 @@
         <link rel="stylesheet" href="style.css">
         <title>upload_comment_page</title>
     </head>
-    <body class="upload_body">
+    <body>
         <?php require ("top_bar.php");?>
         <form class="upload_area" action="upload_description.php" method="POST" enctype="multipart/form-data">
             <div class="upload_input_area">

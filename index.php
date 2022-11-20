@@ -13,5 +13,8 @@
     </head>
     <body class="index_body">
         <?php require ("top_bar.php");?>
+        <div style="margin-top:50px;">
+            <div>暫時放在這裡的一句話</div>
+        </div>
     </body>
 </html>

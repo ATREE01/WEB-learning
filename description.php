@@ -26,13 +26,15 @@
                 <div class="anime_information">
                     <div style="float:right;">
                         <?php       
-                            $_SESSION['anime_id'] = $item['id'];
                             if(isset($_SESSION['user_type']) )
                                 if($_SESSION['user_type'] === 'admin'){
-                                    echo "<button class='modify_btn'>修改</button>";
-                                }
-                                    
+                                    echo "<form action='modify.php' method='POST' class='modify_btn'>";
+                                    echo "  <input type='hidden' name='anime_id' value= $item[id];> ";
+                                    echo "  <input type='submit' name='submit' value='修改'>";
+                                    echo "</form>";
+                                }                                    
                         ?>
+                        
                     </div>
                         <div class="anime_title"><?php echo $item['anime_title'] ?></div>
                         <div class="anime_description"><?php echo $item['anime_description'] ?></div>

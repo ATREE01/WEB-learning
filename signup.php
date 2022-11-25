@@ -53,7 +53,7 @@
         <title>註冊頁面</title>
     </head>
     <body class="signup_body">
-        <form action="signup.php" method=POST class="signup">
+        <form action="signup.php" method="POST" class="signup">
             <h1>歡迎註冊</h1>
             <input class="text_input" type="text" name="username" placeholder="請輸入使用者名稱" ></input>
             <input class="text_input" type="text" name="email" placeholder="請輸入電子信箱" ></input>

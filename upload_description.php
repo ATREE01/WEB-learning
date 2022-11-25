@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     if(isset($_POST['submit'])){
         print_r($_POST);
@@ -27,25 +26,6 @@
         }
         else echo "<script>window.alert('未填入完全')</script>";
     }
-    
-    // if(isset($_POST["submit"])){
-    //     $title = $_POST["anime_title"];
-    //     $comment = $_POST["anime_comment"];
-    //     $filename = $_FILES["image"]["name"];
-    //     $tmpname = $_FILES["image"]["tmp_name"];
-        
-    //     $validImageExtension = ["jpg","jpeg","png"];
-    //     $imageExtension = explode('.',$filename);
-    //     $imageExtension = strtolower(end($imageExtension));
-    //     if(!in_array($imageExtension,$validImageExtension)){
-    //         echo "<script>alert('檔案格式錯誤');</script>";
-    //     }
-    //     $newImageName = uniqid();
-    //     $newImageName .= '.'.$imageExtension;
-    //     move_uploaded_file($tmpname, "img/$newImageName");
-    //     $query = " INSERT INTO anime_comment VALUES('','$newImageName','$title','$comment')";
-    //     mysqli_query($conn , $query);
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -66,10 +46,19 @@
                     <textarea style="height:250px" name="anime_description" placeholder="請在這裡輸入評論"></textarea>
                 </div>
                 <div class="upload_btn">
-                    <input type="file" accept=".jpg, .jpeg, .png" name="image">
+                    <input id="cover_image" type="file" accept=".jpg, .jpeg, .png" name="image">
                     <input type="submit" name="submit"></button>
                 </div>
             </div>
+            <img id="preview" class="preview" src="#">
+            <script>
+                cover_image.onchange = evt =>{
+                    const [file] = cover_image.files
+                    if(file){
+                        preview.src = URL.createObjectURL(file)
+                    }
+                }
+            </script>
         </form>
     </body>
 </html>         

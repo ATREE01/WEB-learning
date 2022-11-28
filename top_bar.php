@@ -1,7 +1,15 @@
 <div class="top_bar" >
     <a class="link_left" href="index.php" >首頁</a>
     <a class="link_left" href="description.php">評論區</a>
-        
+    <div class="link_left dropdown">
+        <button class="drop_btn">小遊戲▼</button>
+        <div class="dropdown_content">
+            <a href="tetris.php">俄羅斯方塊</a>
+            <a href="experimental.php">實驗室</a>
+            <!-- <a href="#">測試</a> -->
+        </div>
+
+    </div>
     <?php
         if(isset($_SESSION['user_type']) )
             if($_SESSION['user_type'] === 'admin')

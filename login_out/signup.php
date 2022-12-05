@@ -1,4 +1,7 @@
 <?php
+    
+    $link = 'http://localhost/anime_web';
+
     if(isset($_POST['submit'])){
         //  print_r($_POST);
         if(empty($_POST['username']))
@@ -25,7 +28,7 @@
             $email = $_POST['email'];$email=htmlspecialchars($email);
             $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
             
-            $mysqli = require __DIR__ . "/database.php";
+            $mysqli = require $_SERVER['DOCUMENT_ROOT'].'/anime_web/database.php';
             $sql = "INSERT INTO login_db (username, email, password_hash)
                     VALUES (?, ?, ?)";
             $stmt = $mysqli->stmt_init();
@@ -49,7 +52,7 @@
         <meta charset="UTF-8"/>
         <meta name="description" content="temp"/>
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href=<?php echo "$link/CSS/style.css" ?>>
         <title>註冊頁面</title>
     </head>
     <body class="signup_body">

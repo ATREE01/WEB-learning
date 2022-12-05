@@ -2,6 +2,16 @@
     position: fixed;
     border: 1px solid;
     border-radius: 10px;
+    top:150px;
     right:20px;
     width: 20%;
+}
+
+.img:hover{
+    width:25%;
+    transition:0.2s;
+}
+
+#canvas{
+    border:1px solid; 
 }

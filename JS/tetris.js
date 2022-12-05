@@ -1,3 +1,4 @@
+
 let canvas;
 let ctx;
 let gBArrayHeight = 20;

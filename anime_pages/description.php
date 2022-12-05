@@ -1,4 +1,5 @@
 <?php
+    $link = 'http://localhost/anime_web';
     session_start();
 ?>
 
@@ -8,21 +9,21 @@
         <meta charset="UTF-8">
         <meta name="description" content="temp">
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href=<?php echo "$link/CSS/style.css"?>>
         <title>My_comment_page</title>
     </head>
     <body>
-        <?php require ("top_bar.php");?>
+    <?php require ($_SERVER['DOCUMENT_ROOT'].'/anime_web/top_bar.php'); ?>
         <div class="display_area">
             <?php
-                $mysqli = require __DIR__ . "/database.php";
+                $mysqli = require $_SERVER['DOCUMENT_ROOT'].'/anime_web/database.php';
                 $sql = "SELECT * FROM anime_description";
                 $result = $mysqli -> query($sql);
                 $anime = mysqli_fetch_all($result, MYSQLI_ASSOC);  
                 foreach($anime as $item):
             ?>
             <div class="anime_block">
-                <div><img class="anime_cover" src= img/<?php echo $item['image_name'] ?> ></div>
+                <div><img class="anime_cover" src= <?php echo $link. "/img/" . $item['image_name'] ?> ></div>
                 <div class="anime_information">
                     <div style="float:right;">
                         <?php       

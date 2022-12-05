@@ -1,5 +1,9 @@
 <?php
+    
+    $link = 'http://localhost/anime_web';
+
     session_start();
+
     if(isset($_POST['submit'])){
         print_r($_POST);
         if(!empty($_POST['anime_title']) && !empty($_POST['anime_description'] && !empty($_FILES['image']))  ){
@@ -22,7 +26,7 @@
             $stmt ->prepare($sql);
             $stmt -> bind_param("sss",$title,$description,$newImageName);
             $stmt->execute();
-            header("Location:description.php");
+            header("Location:$link/anime_pages/description.php");
         }
         else echo "<script>window.alert('未填入完全')</script>";
     }
@@ -34,11 +38,11 @@
         <meta charset="UTF-8">
         <meta name="description" content="temp">
         <meta name="viewpoint" content="width=device=width, initial-scal=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href=<?php echo "$link/CSS/style.css" ?>>
         <title>upload_comment_page</title>
     </head>
     <body>
-        <?php require ("top_bar.php");?>
+        <?php require ($_SERVER['DOCUMENT_ROOT'].'/anime_web/top_bar.php'); ?>
         <form class="upload_area" action="upload_description.php" method="POST" enctype="multipart/form-data">
             <div class="upload_input_area">
                 <div class="upload_text">

@@ -41,7 +41,6 @@ a{
 
 .drop_btn{
     padding:8px;
-    background-color:rgb(145, 237, 248) ;
     color:black;
     font-size:18px;
     border:none;
@@ -76,6 +75,8 @@ a{
 }
 
 /* ---------------main area--------------- */
+
+
 
 /* .index_body{
     background:linear-gradient(120deg, yellow, rgb(43, 220, 226));

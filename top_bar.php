@@ -1,9 +1,9 @@
 <?php
-    $link = 'http://localhost/anime_web'
+    $link = 'http://animeweb.ddns.net/anime_web'
 ?>
 
 <div class="top_bar" >
-    <a class="link_left" href=<?php echo $link . "index.php" ?>>首頁</a>
+    <a class="link_left" href=<?php echo $link . "/index.php" ?>>首頁</a>
     <a class="link_left" href=<?php echo $link . "/anime_pages/description.php"?>>評論區</a>
     <?php
         if(isset($_SESSION['user_type']) )

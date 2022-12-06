@@ -1,5 +1,5 @@
 <?php
-    $link = 'http://localhost/anime_web';
+    $link = 'http://animeweb.ddns.net/anime_web';
     session_start();
 ?>
 
@@ -18,7 +18,7 @@
         <div style="margin-top:50px;"></div>
         <div>
             <a target="blank" href="https://www.youtube.com/watch?v=9fCNNuH-Grg&ab_channel=%E3%82%B9%E3%83%94%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%94%E3%82%ABOfficialYouTubeChannel%28SMEJ%29">
-                <img class="img" src="http://localhost/anime_web/other_img/marin_1.jpg">
+                <img class="img" src=<?php echo "$link/other_img/marin_1.jpg"?> >
             </a>
         </div>
         <canvas id='canvas'></canvas>

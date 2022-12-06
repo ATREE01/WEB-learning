@@ -1,5 +1,5 @@
 <?php
-    $link = 'http://localhost/anime_web';
+    $link = 'http://animeweb.ddns.net/anime_web';
     session_start();
 ?>
 

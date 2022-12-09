@@ -3,7 +3,8 @@
     $link = 'http://animeweb.ddns.net/anime_web';
 
     session_start();
-
+    if(!isset($_SESSION) || $_SESSION['user_type'] != 'admin')
+        header("Location:$link/index.php");
     if(isset($_POST['submit'])){
         print_r($_POST);
         if(!empty($_POST['anime_title']) && !empty($_POST['anime_description'] && !empty($_FILES['image']))  ){

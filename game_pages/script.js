@@ -1,73 +1,64 @@
-const canvas = document.getElementById('canvas1')
-const ctx  = canvas.getContext('2d');
-const CANVAS_WIDTH = canvas.width = 800;
-const CANVAS_HEIGHT = canvas.height = 700;
-let gameSpeed = 10;
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+CANVAS_WIDTH = canvas.width = 500;
+CANVAS_HEIGHT = canvas.height = 700;
+const explosions = [];
+let canvasPosition = canvas.getBoundingClientRect();
 let gameFrame = 0;
 
-const backgroundLayer1 = new Image();
-backgroundLayer1.src = 'game_img/layer-1.png';
-const backgroundLayer2 = new Image();
-backgroundLayer2.src = 'game_img/layer-2.png';
-const backgroundLayer3 = new Image();
-backgroundLayer3.src = 'game_img/layer-3.png';
-const backgroundLayer4 = new Image();
-backgroundLayer4.src = 'game_img/layer-4.png';
-const backgroundLayer5 = new Image();
-backgroundLayer5.src = 'game_img/layer-5.png';
-
-window.addEventListener('load', function(){
-    const slider = document.getElementById('slider');
-    console.log(slider);
-    slider.value = gameSpeed;
-    const showGameSpeed = document.getElementById('showGameSpeed');
-    showGameSpeed.innerHTML = gameSpeed;
-    
-    slider.addEventListener('change', function(e){
-        if(e.target.value != 0)
-            gameFrame = (gameFrame * gameSpeed) / e.target.value; // *******
-        gameSpeed = e.target.value;
-        showGameSpeed.innerHTML = gameSpeed;
-    })
-    
-    
-    class Layer{
-        constructor(image, speedModifier){
-            this.x  = 0;
-            this.y  = 0;
-            this.width =2400;
-            this.height = 700;
-            this.image = image;
-            this.speedModifier = speedModifier;
-            this.speed = gameSpeed * this.speedModifier;
-        }
-        update(){
-            this.speed = gameSpeed * this.speedModifier;
-            this.x = (gameFrame * this.speed) % this.width;
-        }
-        draw(){
-            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-            ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
-        }
+class Explosion {
+    constructor (x, y){
+        this.spriteWidth = 200;
+        this.spriteHeight = 179;
+        this.width = this.spriteWidth * 0.5;
+        this.height = this.spriteHeight * 0.5;
+        this.x = x;
+        this.y = y;
+        this.image = new Image();
+        this.image.src = 'game_img/boom.png';
+        this.frame = 0;
+        this.timer = 0;
+        this.angle = Math.random() * 6.2;
+        this.sound = new Audio();
+        this.sound.src = 'game_sound/boom.wav';
     }
-    
-    const layer1 = new Layer(backgroundLayer1 , 0.2);
-    const layer2 = new Layer(backgroundLayer2 , 0.4);
-    const layer3 = new Layer(backgroundLayer3, 0.6);
-    const layer4 = new Layer(backgroundLayer4, 0.8);
-    const layer5 = new Layer(backgroundLayer5 , 1);
-    
-    const gameObjects = [layer1, layer2, layer3, layer4, layer5];
-    
-    function animate(){
-        ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
-        gameObjects.forEach(object =>{
-            object.update();
-            object.draw();
-        });
-        gameFrame--;
-        requestAnimationFrame(animate);
+    update(){
+        this.timer++;
+        if(this.frame === 0)this.sound.play();
+        if(this.timer % 10 === 0)
+            this.frame++;
+    }
+    draw(){
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.drawImage(this.image,this.spriteWidth * this.frame, 0,this.spriteWidth, this.spriteHeight, 
+            0 - this.width / 2, 0 - this.height / 2, this.width, this.height);
+        ctx.restore();
+    }
+}
+
+window.addEventListener('click',function(e){
+    createAnimate(e);
+});
+
+
+function createAnimate(e){
+    let positionX = e.x - canvasPosition.left;
+    let positionY = e.y - canvasPosition.top;
+    explosions.push(new Explosion(positionX, positionY));
+}
+
+function animate(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(let i = 0; i < explosions.length; i++){
+        explosions[i].update();
+        explosions[i].draw();
+        if(explosions[i].frame > 5){
+            explosions.splice(i, 1);
+            i--;
+        }
     };
-    animate();
-    console.log();
-})
+    requestAnimationFrame(animate);
+};
+animate();

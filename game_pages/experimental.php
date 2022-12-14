@@ -39,13 +39,15 @@
             <canvas id='canvas'></canvas>
             <script src="character.js"></script>
         </div> -->
-        <div id="container">
+        <!-- <div id="container">
             <div class="background">
-                <canvas id="canvas1"></canvas>
+                <canvas id="canvas"></canvas>
             </div>
             <p>Game speed: <span id='showGameSpeed'></span></p>
             <input type="range" min="0" max="20" value="5" class="slider" id="slider"></input>
-            <script src="script.js"></script>
-        </div>
+            <script src="background.js"></script>
+        </div> -->
+        <canvas id="canvas"></canvas>
+        <script src="script.js"></script>
     </body>
 </html>

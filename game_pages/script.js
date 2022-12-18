@@ -1,64 +1,63 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-CANVAS_WIDTH = canvas.width = 500;
-CANVAS_HEIGHT = canvas.height = 700;
-const explosions = [];
-let canvasPosition = canvas.getBoundingClientRect();
-let gameFrame = 0;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-class Explosion {
-    constructor (x, y){
-        this.spriteWidth = 200;
-        this.spriteHeight = 179;
-        this.width = this.spriteWidth * 0.5;
-        this.height = this.spriteHeight * 0.5;
-        this.x = x;
-        this.y = y;
+let timeToNextRaven = 0;
+let ravenInterval = 500;
+let lastTime = 0;
+
+let ravens = [];
+class Raven {
+    constructor(){
+        this.spriteWidth = 271;
+        this.spriteHeight = 194;
+        this.sizeModifier = Math.random() * 0.6 + 0.4;
+        this.width = this.spriteHeight * this.sizeModifier;
+        this.height = this.spriteHeight * this.sizeModifier;
+        this.x = canvas.width;
+        this.y = Math.random() * (canvas.height - this.height);
+        this.directionX = Math.random() * 5 + 3;
+        this.directionY = Math.random() * 5 - 2.5;
+        this.markedForDeletion = false;
         this.image = new Image();
-        this.image.src = 'game_img/boom.png';
+        this.image.src = 'game_img/raven.png';
         this.frame = 0;
-        this.timer = 0;
-        this.angle = Math.random() * 6.2;
-        this.sound = new Audio();
-        this.sound.src = 'game_sound/boom.wav';
+        this.maxFrame = 4;
+        this.timeSinceFlap = 0;
+        this.flapInterval = 50;
     }
-    update(){
-        this.timer++;
-        if(this.frame === 0)this.sound.play();
-        if(this.timer % 10 === 0)
+    update(deltatime){
+        this.x -= this.directionX;
+        this.y += this.directionY;
+        if(this.x < 0 - this.width)this.markedForDeletion = true;
+        this.timeSinceFlap +=  deltatime;
+        if(this.timeSinceFlap > this.flapInterval){
             this.frame++;
+            this.frame %= this.maxFrame;
+            this.timeSinceFlap = 0;
+        }
     }
     draw(){
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle);
-        ctx.drawImage(this.image,this.spriteWidth * this.frame, 0,this.spriteWidth, this.spriteHeight, 
-            0 - this.width / 2, 0 - this.height / 2, this.width, this.height);
-        ctx.restore();
+        ctx.strokeRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(this.image,this.frame * this.spriteWidth ,0 ,this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
     }
 }
 
-window.addEventListener('click',function(e){
-    createAnimate(e);
-});
-
-
-function createAnimate(e){
-    let positionX = e.x - canvasPosition.left;
-    let positionY = e.y - canvasPosition.top;
-    explosions.push(new Explosion(positionX, positionY));
-}
-
-function animate(){
+function animate(timestamp){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for(let i = 0; i < explosions.length; i++){
-        explosions[i].update();
-        explosions[i].draw();
-        if(explosions[i].frame > 5){
-            explosions.splice(i, 1);
-            i--;
-        }
-    };
+    let deltatime = timestamp - lastTime;
+    lastTime = timestamp;
+    timeToNextRaven += deltatime;
+    if(timeToNextRaven > ravenInterval){
+        ravens.push(new Raven());
+        timeToNextRaven = 0;
+    }
+    [...ravens].forEach(object => {
+        object.update(deltatime);
+        object.draw();
+    })  
+    ravens = ravens.filter(object => !object.markedForDeletion)
     requestAnimationFrame(animate);
-};
-animate();
+}
+animate(0);

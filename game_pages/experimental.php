@@ -47,7 +47,11 @@
             <input type="range" min="0" max="20" value="5" class="slider" id="slider"></input>
             <script src="background.js"></script>
         </div> -->
-        <canvas id="canvas"></canvas>
-        <script src="script.js"></script>
+        <!-- <canvas id="canvas"></canvas>
+        <script src="click.js"></script> -->
+        <div class='temp'>
+            <canvas id="canvas"></canvas>
+            <script src="script.js"></script>
+        </div>
     </body>
 </html>

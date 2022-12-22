@@ -1,5 +1,5 @@
 <?php
-    $link = 'http://animeweb.ddns.net/anime_web';
+    $link = 'https://animeweb.ddns.net/anime_web';
     session_start();
 ?>
 
@@ -49,9 +49,5 @@
         </div> -->
         <!-- <canvas id="canvas"></canvas>
         <script src="click.js"></script> -->
-        <div class='temp'>
-            <canvas id="canvas"></canvas>
-            <script src="script.js"></script>
-        </div>
     </body>
 </html>

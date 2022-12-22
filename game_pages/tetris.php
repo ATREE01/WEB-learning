@@ -1,6 +1,6 @@
 <?php
 
-    $link = 'http://animeweb.ddns.net/anime_web';
+    $link = 'https://animeweb.ddns.net/anime_web';
     session_start();
 
 ?>
@@ -28,8 +28,8 @@
         <div style="margin-top:50px;"></div>
         <div>
             <h1>
-                這是一個充滿bug的俄羅斯方塊 真虧那個人還能出youtube教學。
-                不過至少算是學到怎麼寫JS遊戲了。
+                這是一個充滿bug的俄羅斯方塊，從youtube上學來的俄羅斯方塊，
+                等到之後有時間我再來寫一個新的。
             </h1>
             <canvas id='my_canvas'></canvas>
             <script src="tetris.js"></script>

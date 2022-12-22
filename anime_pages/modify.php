@@ -1,6 +1,6 @@
 <?php
 
-$link = 'http://animeweb.ddns.net/anime_web';
+$link = 'https://animeweb.ddns.net/anime_web';
 
     if(isset($_POST['submit'])){
         $mysqli = require $_SERVER['DOCUMENT_ROOT'].'/anime_web/database.php';

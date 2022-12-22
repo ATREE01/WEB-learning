@@ -78,10 +78,24 @@ a{
 
 
 
-/* .index_body{
-    background:linear-gradient(120deg, yellow, rgb(43, 220, 226));
-} */
+.index_body{
+    overflow: hidden;
+} 
 
+.background{
+    position:fixed;
+    top:40px;
+    left:0px;
+    display:absolute;
+    height:100%;
+    width:100%;
+    opacity: 0.5;
+    z-index:-100;
+}
+
+.personal_information p{
+    text-indent:2em;
+}
 
 /* ---------------login signup area--------------- */
 

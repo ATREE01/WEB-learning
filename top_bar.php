@@ -1,5 +1,5 @@
 <?php
-    $link = 'http://animeweb.ddns.net/anime_web'
+    $link = 'https://animeweb.ddns.net/anime_web'
 ?>
 
 <div class="top_bar" >

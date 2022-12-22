@@ -1,6 +1,6 @@
-<?php
+< <?php
     
-    $link = 'http://animeweb.ddns.net/anime_web';
+    $link = 'https://animeweb.ddns.net/anime_web';
 
     if(isset($_POST['submit'])){
         //  print_r($_POST);
@@ -32,7 +32,7 @@
             $sql = "INSERT INTO login_db (username, email, password_hash)
                     VALUES (?, ?, ?)";
             $stmt = $mysqli->stmt_init();
-            $stmt ->prepare($sql);
+            $stmt -> prepare($sql);
             $stmt -> bind_param("sss",$username,$email,$password_hash);
             try {
                 $stmt->execute();
@@ -65,4 +65,5 @@
             <input class="btn" type="submit" name="submit" value="註冊">
         </form>
     </body>
-</html>
+</html>>
+

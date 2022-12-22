@@ -1,5 +1,5 @@
 <?php
-     $link = 'http://animeweb.ddns.net/anime_web';
+    $link = 'https://animeweb.ddns.net/anime_web';
 
     if(isset($_POST['submit'])){
         $mysqli = require $_SERVER['DOCUMENT_ROOT'].'/anime_web/database.php';
@@ -37,6 +37,11 @@
         <title>登入頁面</title>
     </head>
     <body class="login_body"> 
+        <?php
+            session_start();    
+            if(isset($_SESSION['username']))
+                header("Location:$link/index.php");
+        ?>  
         <form action="login.php" class="login" method="POST">
             <h1>歡迎登入</h1>
             <input class="login_input" type="email" name="email" placeholder="請輸入電子信箱"></input>

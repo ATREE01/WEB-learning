@@ -1,6 +1,6 @@
 <?php
     
-    $link = 'http://animeweb.ddns.net/anime_web';
+    $link = 'https://animeweb.ddns.net/anime_web';
 
     session_start();
     if(!isset($_SESSION) || $_SESSION['user_type'] != 'admin')
@@ -24,9 +24,9 @@
             $sql = "INSERT INTO anime_description (anime_title, anime_description, image_name)
                     VALUES (?, ?, ?)";
             $stmt = $mysqli->stmt_init();
-            $stmt ->prepare($sql);
+            $stmt -> prepare($sql);
             $stmt -> bind_param("sss",$title,$description,$newImageName);
-            $stmt->execute();
+            $stmt-> execute();
             header("Location:$link/anime_pages/description.php");
         }
         else echo "<script>window.alert('未填入完全')</script>";

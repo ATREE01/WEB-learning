@@ -10,11 +10,12 @@
             if($_SESSION['user_type'] === 'admin')
                 echo "<a class='link_left' href='$link/anime_pages/upload_description.php'>上傳評論區</a>";                
     ?>
-    <a class="link_left" href=<?php echo $link . "/game_pages/experimental.php" ?> >JAVASCRIPT實驗室</a>
+    <a class="link_left" href=<?php echo $link . "/web_crawler_nodejs/index.html" ?> >爬蟲實驗室</a>
     <div class="link_left dropdown">
         <span class="drop_btn">小遊戲</span>
         <div class="dropdown_content">
-            <a href=<?php echo $link . "/game_pages/tetris.php" ?> >俄羅斯方塊</a>
+            <a href=<?php echo $link . "/game_pages/tetris/tetris.php" ?> >俄羅斯方塊</a>
+            <a href=<?php echo $link . "/game_pages/experimental/experimental.php" ?> >實驗室</a>
             <!-- <a href="#">測試</a> -->
         </div>
     </div>

@@ -36,8 +36,6 @@ session_start();
         <P>生日: 2003/11/02</p>
         <p>興趣: 看動畫，寫程式，重訓</P>
         <p>學歷: 中央大學資訊工程學系</p>
-
-
     </div>
     <!-- <image src=other_img/marin.jpg style="width:100%;opacity:1.0;"> -->
 </body>

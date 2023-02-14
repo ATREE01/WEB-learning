@@ -1,4 +1,4 @@
-< <?php
+<?php
     
     $link = 'https://animeweb.ddns.net/anime_web';
 
@@ -65,5 +65,5 @@
             <input class="btn" type="submit" name="submit" value="註冊">
         </form>
     </body>
-</html>>
+</html>
 

@@ -23,7 +23,7 @@
                 foreach($anime as $item):
             ?>
             <div class="anime_block">
-                <div><img class="anime_cover" src= <?php echo $link. "/img/" . $item['image_name'] ?> ></div>
+                <div><img class="anime_cover" src= <?php echo $link. "/anime_pages/img/" . $item['image_name'] ?> ></div>
                 <div class="anime_information">
                     <div style="float:right;">
                         <?php       

@@ -6,7 +6,6 @@
     if(!isset($_SESSION) || $_SESSION['user_type'] != 'admin')
         header("Location:$link/index.php");
     if(isset($_POST['submit'])){
-        print_r($_POST);
         if(!empty($_POST['anime_title']) && !empty($_POST['anime_description'] && !empty($_FILES['image']))  ){
             $title = $_POST["anime_title"];
             $description = $_POST["anime_description"];
@@ -20,7 +19,7 @@
             $newImageName .= '.'.$imageExtension;
             move_uploaded_file($tmpname, "img/$newImageName");
 
-            $mysqli = require __DIR__ . "/database.php";
+            $mysqli = require $_SERVER['DOCUMENT_ROOT'] . "/anime_web/database.php";
             $sql = "INSERT INTO anime_description (anime_title, anime_description, image_name)
                     VALUES (?, ?, ?)";
             $stmt = $mysqli->stmt_init();

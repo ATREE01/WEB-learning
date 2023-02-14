@@ -1,5 +1,18 @@
 /* ---------------general area--------------- */
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+    background: rgb(219,219,219);
+}
+
 * {
     font-family:Microsoft JhengHei;
     /* font-family:DFKai-sb; 標楷體*/
@@ -164,6 +177,7 @@ a{
     width:100%;
     margin-left:5%;
     display:block;
+    overflow-y: scroll;
 }
 .anime_cover{
     border-radius: 10px;
@@ -184,6 +198,7 @@ a{
 .anime_description{
     margin-right:20px;
     text-align: justify;
+
 }
 
 
